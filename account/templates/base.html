@@ -8,6 +8,28 @@
 <body>
     <div id="header">
         <span class="logo">Mini Forum Konsolowe</span>
+        {% if request.user.is_authenticated %}
+        <ul class="manu">
+        <li {% if section == "dashboard" %}class="selected"{% endif %}>
+            <a href="{% url "dashboard" %}">Strona główna</a>
+        </li>
+        <li {% if section == "images" %}class="selected"{% endif %}>
+            <a href="#">Obrazy</a>
+        </li>
+         <li {% if section == "consoles" %}class="selected"{% endif %}>
+            <a href="#">Konsole</a>
+        </li>
+        </ul>
+    {% endif %}
+
+    <span class="user">
+        {% if request.user.is_authenticated %}
+            Witaj, {{ request.user.first_name }}
+            <a href="{% url "logout" %}">Wyloguj</a>
+        {% else %}
+            <a href="{% url "login" %}">Zaloguj</a>
+        {% endif %}
+    </span>
     </div>
     <div id="content">
         {% block content %}
