@@ -30,7 +30,7 @@ class Rating(models.Model):
     id = models.AutoField(primary_key=True)
     konsola = models.ForeignKey(Console, on_delete=models.CASCADE)
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
-    ocena = models.IntegerField(choices=[(i, str(i) for i in range(1, 6))])
+    ocena = models.IntegerField(choices=[(i, str(i)) for i in range(1, 6)])
     data_utworzenia = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
