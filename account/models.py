@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.conf import settings
 
 class Console(models.Model):
     id = models.AutoField(primary_key=True)
@@ -35,3 +36,13 @@ class Rating(models.Model):
 
     def __str__(self):
         return f'Ocena: {self.ocena}'
+
+class Profile(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL,
+                                on_delete=models.CASCADE)
+    date_of_birth = models.DateField(null=True, blank=True)
+    photo = models.ImageField(upload_to='user/%Y/%m/%d/',
+                              blank=True)
+
+    def __str__(self):
+        return 'Profil użytkownika {}.'.format(self.user.username)

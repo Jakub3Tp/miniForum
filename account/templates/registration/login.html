@@ -11,7 +11,8 @@
             Spróbuj ponownie.
         </p>
     {% else %}
-    <p>Wypełnij poniższy formularz, aby się zalogować:</p>
+    <p>Wypełnij poniższy formularz, aby się zalogować. Jeśli nie jesteś jeszcze naszym członkiem
+        możesz nim zostać <a href="{% url 'register' %}">tutaj</a> </p>
     {% endif %}
     <div class="login-form">
         <form action="{% url 'login' %}" method="post">

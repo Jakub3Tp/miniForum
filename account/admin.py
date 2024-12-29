@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Console
 from .models import Comment
 from .models import Rating
+from .models import Profile
 
 @admin.register(Console)
 class ConsoleAdmin(admin.ModelAdmin):
@@ -18,3 +19,7 @@ class RatingAdmin(admin.ModelAdmin):
     list_display = ('id', 'konsola', 'autor', 'ocena', 'data_utworzenia')
     search_fields = ('konsola', 'autor')
     list_filter = ('ocena', 'konsola')
+
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ['user', 'date_of_birth', 'photo']
