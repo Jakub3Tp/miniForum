@@ -11,13 +11,13 @@
         <span class="logo" style="font-family: OCR A Std, monospace"><h3>Mini Forum Konsolowe</h3></span>
         {% if request.user.is_authenticated %}
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li {% if section == "dashboard" %}class="class="nav-item"{% endif %}>
-            <a class="nav-link" style="color: white" href="{% url "dashboard" %}">Strona główna</a>
+        <li {% if section == "dashboard" %} class="nav-item" {% endif %}>
+            <a class="nav-link" style="color: white" href="{% url 'dashboard' %}">Strona główna</a>
         </li>
-        <li {% if section == "images" %}class="class="nav-item"{% endif %}>
+        <li {% if section == "images" %} class="nav-item" {% endif %}>
             <a class="nav-link" style="color: white" href="#">Obrazy</a>
         </li>
-         <li {% if section == "consoles" %}class="class="nav-item"{% endif %}>
+         <li {% if section == "consoles" %} class="nav-item" {% endif %}>
             <a class="nav-link" style="color: white" href="#">Konsole</a>
         </li>
         </ul>
@@ -27,14 +27,13 @@
             {% if request.user.is_authenticated %}
                 <p style="color: white">Cześć, {{ request.user.first_name|default:request.user.username }}</p>
                 <form action="{% url 'logout' %}" method="post">
-                    <button type="submit">Wyloguj</button>
+                    <button type="submit" class="btn btn-outline-light">Wyloguj</button>
                 {% csrf_token %}
                 </form>
                 {% else %}
                 <a href="{% url 'login' %}" style="color: white">Zaloguj</a>
             {% endif %}
         </span>
-    </span>
         </div>
     </nav>
 
