@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+    <title>Dodaj Konsolę</title>
+</head>
+<body>
+    <h1>Dodaj nową konsolę</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Zapisz</button>
+    </form>
+    <a href="/consoles/">Powrót do listy konsol</a>
+</body>
+{% endblock %}

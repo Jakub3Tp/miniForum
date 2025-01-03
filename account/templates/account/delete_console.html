@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+    <title>Usuń Konsolę</title>
+</head>
+<body>
+    <h1>Czy na pewno chcesz usunąć tę konsolę?</h1>
+    <p>{{ console.name }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Usuń</button>
+    </form>
+    <a href="{% url 'console_list' %}">Anuluj</a>
+</body>
+{% endblock %}
