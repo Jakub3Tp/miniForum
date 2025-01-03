@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.conf import settings
+from django.urls import reverse
 
 class Console(models.Model):
     id = models.AutoField(primary_key=True)
@@ -16,6 +17,8 @@ class Console(models.Model):
     def __str__(self):
         return self.nazwa
 
+    def get_absolute_url(self):
+        return reverse('console_detail', kwargs={'pk': self.pk})
 
 class Comment(models.Model):
     id = models.AutoField(primary_key=True)
