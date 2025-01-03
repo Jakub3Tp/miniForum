@@ -2,7 +2,7 @@ from symtable import Class
 
 from django import forms
 
-from account.models import Console
+from account.models import Console, Comment, Rating
 from .models import Profile
 from django.contrib.auth import get_user_model
 
@@ -42,3 +42,13 @@ class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['date_of_birth','photo']
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['tresc']
+
+class RatingForm(forms.ModelForm):
+    class Meta:
+        model = Rating
+        fields = ['ocena']
