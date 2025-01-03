@@ -28,7 +28,7 @@
       <li>
         <a href="{% url 'console_detail' console.pk %}">{{ console.nazwa }}</a>
         <img src="{{ console.zdjecie.url }}" style="max-height: 100px; max-width: 100px;">
-      </li>
+      </li> 
     {% endfor %}
   </ul>
   <a href="{% url 'add_console' %}">Dodać konsole</a>
