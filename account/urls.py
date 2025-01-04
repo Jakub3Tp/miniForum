@@ -14,3 +14,4 @@ urlpatterns = [
     path('consoles/<int:pk>/edit/', views.edit_console, name='edit_console'),
     path('consoles/<int:pk>/', views.console_detail, name='console_detail'),
     path('consoles/<int:pk>/delete/', views.delete_console, name='delete_console'),
+]

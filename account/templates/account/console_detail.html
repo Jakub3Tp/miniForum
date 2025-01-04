@@ -3,6 +3,7 @@
 {% block content %}
 
 <body>
+    <div class = "container">
     <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-left: 5px;">
         <div style="margin-right: 20px;">
             <h1>{{ console.nazwa }}</h1>
@@ -12,8 +13,9 @@
             <p>Data premiery: {{ console.data_premiery }}</p>
             <p>Producent: {{ console.producent }}</p>
             <p>{{ console.opis }}</p>
-            <p>Śriednia ocena: {{ average_rating|default:"Nie ma ocen" }}</p>
+            <p>Średnia ocen: {{ average_rating|default:"Nie ma ocen" }}</p>
         </div>
+
         <div style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; background-color: #f9f9f9;">
             <h2>Oceń konsole</h2>
             <ul>
@@ -70,5 +72,6 @@
             </li>
         </ul>
     </div>
+</div>
 </body>
 {% endblock %} 

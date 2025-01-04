@@ -166,7 +166,4 @@ def console_detail(request, pk):
         'comment_form': comment_form,
         'rating_form': rating_form,
     })
-        user_form = UserEditForm(instance=request.user)
-        profile_form = ProfileEditForm(instance=request.user.profile)
-    return render(request,'account/edit.html',
-                  {'user_form': user_form, 'profile_name': profile_form})
+

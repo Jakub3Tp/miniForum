@@ -3,12 +3,13 @@
 {% block title %}Lista konsol{% endblock %}
 
 {% block content %}
+<div class="container">
   <div class="search-filters">
     <form method="get">
         <input type="text" name="q" placeholder="Wyszukaj po nazwie" value="{{ request.GET.q }}">
 
          <select name="producent">
-        <option value="">Wszystkie producenci</option>
+        <option value="">Producenci</option>
         {% for p in producenci %}
             <option value="{{ p }}" {% if request.GET.producent == p %}selected{% endif %}>
                 {{ p }}
@@ -22,14 +23,23 @@
         <button type="submit">Filtruj</button>
     </form>
   </div>
-  <h1>Lista konsoli</h1>
-  <ul>
+
+    <h1 class="mb-4">Lista konsol</h1>
+    <div class="row">
     {% for console in consoles %}
-      <li>
-        <a href="{% url 'console_detail' console.pk %}">{{ console.nazwa }}</a>
-        <img src="{{ console.zdjecie.url }}" style="max-height: 100px; max-width: 100px;">
-      </li> 
+        <div class="col-md-4">
+            <div class="card mb-4">
+            {% if console.zdjecie %}
+                <img src="{{ console.zdjecie.url }}" class="card-img-top" alt="{{ console.nazwa }}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ console.nazwa }}</h5>
+            <a href="{% url 'console_detail' console.pk %}" class="btn btn-primary">Zobacz szczegóły</a>
+          </div>
+        </div>
+      </div>
     {% endfor %}
-  </ul>
-  <a href="{% url 'add_console' %}">Dodać konsole</a>
+    </div>
+    <a href="{% url 'add_console' %}" class="btn btn-success">Dodaj konsole</a>
+    </div>
 {% endblock %}
