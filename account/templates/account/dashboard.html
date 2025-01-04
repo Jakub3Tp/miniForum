@@ -3,10 +3,18 @@
 {% block title %}Strona Główna{% endblock %}
 
 {% block content %}
-    <div class="container">
+<div class="bg-light">
+    <div class="container rounded-3" style="background-color: white">
         <h1>Strona główna</h1>
+        <hr>
         <p>Witamy na stronie głównej</p>
-
+        <div class="row">
+            <div class="row">
+              {% for console in consoles_today %}
+                {% include 'console_list.html' %}
+              {% endfor %}
+            </div>
+        </div>
     </div>
 
 <div class="accordion mt-5" id="accordionExample">
@@ -18,7 +26,7 @@
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          <strong>Bo tak nakazał nasz pan i władca Adam Karczewski.</strong> A tak naprawdę to dlatego, by zżeszyć fanów i entuzjastów różnych konsol.
+          <strong>By zżeszyć fanów i entuzjastów różnych konsol.</strong>
         </div>
       </div>
     </div>
@@ -46,5 +54,6 @@
         </div>
       </div>
     </div>
+</div>
 </div>
 {% endblock %}

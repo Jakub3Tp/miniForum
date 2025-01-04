@@ -5,14 +5,16 @@
     <title>Edytuj Konsolę</title>
 </head>
 <body>
-<div class = "container">
-    <h1>Edytuj konsolę</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Zapisz zmiany</button>
-    </form>
-    <a href="{% url 'console_list' %}">Powrót do listy konsol</a>
-</div>>
+<div class="bg-light">
+    <div class="container rounded-3" style="background-color: white">
+        <h1>Edytuj konsolę</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success">Zapisz zmiany</button>
+        </form>
+        <a href="{% url 'console_list' %}" class="btn btn-primary">Powrót do listy konsol</a>
+    </div>
+</div>
 </body>
 {% endblock %}

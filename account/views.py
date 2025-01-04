@@ -33,6 +33,10 @@ def dashboard(request):
     return render(request,
                   'account/dashboard.html',
                   {'section': 'dashboard'})
+    today = now().date()
+    consoles_today = Console.objects.filter(data_utworzenia=today)
+
+    return render(request, 'homepage.html', {'consoles_today': consoles_today})
 
 def register(request):
     if request.method == 'POST':

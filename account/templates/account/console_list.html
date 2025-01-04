@@ -3,28 +3,31 @@
 {% block title %}Lista konsol{% endblock %}
 
 {% block content %}
-<div class="container">
-  <div class="search-filters">
-    <form method="get">
-        <input type="text" name="q" placeholder="Wyszukaj po nazwie" value="{{ request.GET.q }}">
+<div class="bg-light">
+    <div class="container rounded-3" style="background-color: white">
+      <div class="search-filters">
+        <form method="get">
+            <input type="text" name="q" placeholder="Wyszukaj po nazwie" value="{{ request.GET.q }}">
 
-         <select name="producent">
-        <option value="">Producenci</option>
-        {% for p in producenci %}
-            <option value="{{ p }}" {% if request.GET.producent == p %}selected{% endif %}>
-                {{ p }}
-            </option>
-        {% endfor %}
-    </select>
+             <select name="producent">
+            <option value="">Producenci</option>
+            {% for p in producenci %}
+                <option value="{{ p }}" {% if request.GET.producent == p %}selected{% endif %}>
+                    {{ p }}
+                </option>
+            {% endfor %}
+        </select>
 
-        <input type="date" name="data_premiery_from" value="{{ request.GET.data_premiery_from }}">
-        <input type="date" name="data_premiery_to" value="{{ request.GET.data_premiery_to }}">
+            <input type="date" name="data_premiery_from" value="{{ request.GET.data_premiery_from }}">
+            <input type="date" name="data_premiery_to" value="{{ request.GET.data_premiery_to }}">
 
-        <button type="submit">Filtruj</button>
-    </form>
-  </div>
+            <button type="submit">Filtruj</button>
+        </form>
+      </div>
 
+        <hr>
     <h1 class="mb-4">Lista konsol</h1>
+        <hr>
     <div class="row">
     {% for console in consoles %}
         <div class="col-md-4">
@@ -42,4 +45,5 @@
     </div>
     <a href="{% url 'add_console' %}" class="btn btn-success">Dodaj konsole</a>
     </div>
+</div>
 {% endblock %}
