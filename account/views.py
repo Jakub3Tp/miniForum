@@ -8,6 +8,7 @@ from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditFor
 from django.contrib.auth.decorators import login_required
 from .models import Profile, Console, Comment, Rating
 from django.contrib.auth.mixins import LoginRequiredMixin
+from datetime import date
 
 def user_login(request):
     if request.method == 'POST':
@@ -30,14 +31,12 @@ def user_login(request):
 
 @login_required
 def dashboard(request):
-    return render(request,
-                  'account/dashboard.html',
-                  {'section': 'dashboard'})
-    today = now().date()
-    consoles_today = Console.objects.filter(data_utworzenia=today)
-
-    return render(request, 'homepage.html', {'consoles_today': consoles_today})
-
+    today = date.today()
+    consoles_today = Console.objects.filter(data_utworzenia__date=today)
+    return render(request,'account/dashboard.html', {
+        'section': 'dashboard',
+        'consoles_today': consoles_today,
+    })
 def register(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)

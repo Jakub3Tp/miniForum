@@ -1,0 +1,11 @@
+<div class="col-md-4">
+  <div class="card mb-4">
+    {% if console.zdjecie %}
+      <img src="{{ console.zdjecie.url }}" class="card-img-top" alt="{{ console.nazwa }}" style="height: 400px; object-fit: cover;">
+    {% endif %}
+    <div class="card-body">
+      <h5 class="card-title">{{ console.nazwa }}</h5>
+      <a href="{% url 'console_detail' console.pk %}" class="btn btn-primary">Zobacz szczegóły</a>
+    </div>
+  </div>
+</div>

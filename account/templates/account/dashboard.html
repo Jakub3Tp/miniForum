@@ -8,14 +8,27 @@
         <h1>Strona główna</h1>
         <hr>
         <p>Witamy na stronie głównej</p>
-        <div class="row">
             <div class="row">
-              {% for console in consoles_today %}
-                {% include 'console_list.html' %}
-              {% endfor %}
+                {% for console in consoles_today %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    {% if console.zdjecie %}
+                        <img src="{{ console.zdjecie.url }}" class="card-img-top" alt="{{ console.nazwa }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ console.nazwa }}</h5>
+                        <p class="card-text">Producent: {{ console.producent }}</p>
+                        <a href="{% url 'console_detail' console.pk %}" class="btn btn-primary">Zobacz szczegóły</a>
+                    </div>
+                </div>
             </div>
-        </div>
+        {% endfor %}
     </div>
+    {% if consoles_today|length == 0 %}
+        <p>Brak konsol stworzonych dzisiaj.</p>
+    {% endif %}
+    </div>
+
 
 <div class="accordion mt-5">
     <div class="accordion-item">
