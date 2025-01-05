@@ -70,6 +70,7 @@ def edit(request):
     return render(request,'account/edit.html',
                   {'user_form': user_form, 'profile_name': profile_form})
 
+@login_required
 def console_list(request):
     producenci = Console.objects.values_list('producent', flat=True).distinct()
     query = request.GET.get('q', '')
@@ -91,6 +92,7 @@ def console_list(request):
         consoles = consoles.filter(data_premiery__lte=data_premiery_to)
     return render(request, 'account/console_list.html', {'consoles': consoles, "producenci": producenci})
 
+@login_required
 def add_console(request):
     if request.method == 'POST':
         form = ConsoleForm(request.POST, request.FILES)
@@ -103,6 +105,7 @@ def add_console(request):
         form = ConsoleForm()
     return render(request, 'account/add_console.html', {'form': form})
 
+@login_required
 def edit_console(request, pk):
     console = Console.objects.get(pk=pk)
     if request.method == 'POST':
@@ -114,6 +117,7 @@ def edit_console(request, pk):
         form = ConsoleForm(instance=console)
     return render(request, 'account/edit_console.html', {'form': form})
 
+@login_required
 def delete_console(request, pk):
     console = Console.objects.get(pk=pk)
     if request.method == 'POST':
@@ -121,6 +125,7 @@ def delete_console(request, pk):
         return redirect('console_list')
     return render(request, 'account/delete_console.html', {'console': console})
 
+@login_required
 def console_detail(request, pk):
     console = Console.objects.get(pk=pk)
     comments = Comment.objects.filter(konsola=console)
@@ -170,3 +175,6 @@ def console_detail(request, pk):
         'rating_form': rating_form,
     })
 
+@login_required
+def about(request):
+    return render(request, 'account/about.html')

@@ -14,11 +14,11 @@
         <li {% if section == "dashboard" %} class="nav-item" {% endif %}>
             <a class="nav-link" style="color: white" href="{% url 'dashboard' %}">Strona główna</a>
         </li>
-        <li {% if section == "images" %} class="nav-item" {% endif %}>
+        <li {% if section == "consoles" %} class="nav-item" {% endif %}>
             <a class="nav-link" style="color: white" href="{% url 'console_list' %}">Lista Konsol</a>
         </li>
-         <li {% if section == "consoles" %} class="nav-item" {% endif %}>
-            <a class="nav-link" style="color: white" href="#">Członkowie</a>
+         <li {% if section == "us" %} class="nav-item" {% endif %}>
+            <a class="nav-link" style="color: white" href="{% url 'about' %}">O nas</a>
         </li>
         </ul>
         {% endif %}
