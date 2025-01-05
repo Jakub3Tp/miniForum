@@ -4,10 +4,11 @@
 
 {% block content %}
 <div class="bg-light">
-    <div class="container rounded-3" style="background-color: white;height: 500px">
+    <div class="container rounded-3" style="background-color: white;height: fixed">
         <h1>Strona główna</h1>
         <hr>
-        <p>Witamy na stronie głównej</p>
+        <p style="text-align: center; border: 4px dotted blue; padding: 25px;"><strong>Witamy na stronie głównej</strong></p>
+        <h2>Dzisiejsze karty:</h2>
             <div class="row">
                 {% for console in consoles_today %}
             <div class="col-md-4">
@@ -28,7 +29,6 @@
         <p>Brak konsol stworzonych dzisiaj.</p>
     {% endif %}
     </div>
-
 
 <div class="accordion mt-5">
     <div class="accordion-item">
