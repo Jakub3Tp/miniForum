@@ -20,6 +20,9 @@
          <li {% if section == "us" %} class="nav-item" {% endif %}>
             <a class="nav-link" style="color: white" href="{% url 'about' %}">O nas</a>
         </li>
+        <li {% if section == "edit" %} class="nav-item" {% endif %}>
+            <a class="nav-link" style="color: white" href="{% url 'edit' %}">Edytuj Konto</a>
+        </li>
         </ul>
         {% endif %}
 
