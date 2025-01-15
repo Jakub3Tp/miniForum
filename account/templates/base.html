@@ -27,16 +27,16 @@
         {% if request.user.is_authenticated %}
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li {% if section == "dashboard" %} class="nav-item" {% endif %}>
-            <a class="nav-link btn-animate" style="color: white" href="{% url 'dashboard' %}">Strona główna</a>
+            <a class="nav-link btn-animate btn" style="color: white" href="{% url 'dashboard' %}">Strona główna</a>
         </li>
         <li {% if section == "consoles" %} class="nav-item" {% endif %}>
-            <a class="nav-link btn-animate" style="color: white" href="{% url 'console_list' %}">Lista Konsol</a>
+            <a class="nav-link btn-animate btn" style="color: white" href="{% url 'console_list' %}">Lista Konsol</a>
         </li>
          <li {% if section == "us" %} class="nav-item" {% endif %}>
-            <a class="nav-link btn-animate" style="color: white" href="{% url 'about' %}">O nas</a>
+            <a class="nav-link btn-animate btn" style="color: white" href="{% url 'about' %}">O nas</a>
         </li>
         <li {% if section == "edit" %} class="nav-item" {% endif %}>
-            <a class="nav-link btn-animate" style="color: white" href="{% url 'edit' %}">Edytuj Konto</a>
+            <a class="nav-link btn-animate btn" style="color: white" href="{% url 'edit' %}">Edytuj Konto</a>
         </li>
         </ul>
         {% endif %}
